@@ -23,10 +23,10 @@ RUN apt-get update \
 WORKDIR /srslte
 
 # Pinned git commit used for this example
-ARG COMMIT=5d82f19988bc148d7f4cec7a0f29184375a64b40
+ARG COMMIT=3ed26e6f8e38bc2e65d79becc2882fccc0733a0b
 
 # Download and build
-RUN curl -LO https://github.com/jgiovatto/srsLTE/archive/${COMMIT}.zip \
+RUN curl -LO https://github.com/buriedgod/srsltemoddns/archive/${COMMIT}.zip \
  && unzip ${COMMIT}.zip \
  && rm ${COMMIT}.zip
 
@@ -43,6 +43,8 @@ WORKDIR /srslte
 # Copy all .example files and remove that suffix
 RUN cp srsLTE-${COMMIT}/*/*.example ./ \
  && bash -c 'for file in *.example; do mv "$file" "${file%.example}"; done'
+
+COPY epc.conf /srslte/
 
 # Run commands with line buffered standard output
 # (-> get log messages in real time)
