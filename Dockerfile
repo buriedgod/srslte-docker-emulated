@@ -23,10 +23,10 @@ RUN apt-get update \
 WORKDIR /srslte
 
 # Pinned git commit used for this example
-ARG COMMIT=3ed26e6f8e38bc2e65d79becc2882fccc0733a0b
+ARG COMMIT=b30e9074a40a50c780982c30f9bbc7cfe52bf0e0
 
 # Download and build
-RUN curl -LO https://github.com/buriedgod/srsltemoddns/archive/${COMMIT}.zip \
+RUN curl -LO https://github.com/buriedgod/srsLTE/archive/${COMMIT}.zip \
  && unzip ${COMMIT}.zip \
  && rm ${COMMIT}.zip
 
